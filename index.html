@@ -14,7 +14,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 #glow{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(500px circle at var(--x,50%) var(--y,30%),rgba(61,220,132,.10),transparent 60%)}
 .wrap{max-width:900px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 /* HERO */
-.hero{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(#0c0a14,#1b1330 60%,#2a1a3a);display:flex;align-items:center}
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:linear-gradient(#0c0a14,#1b1330 60%,#2a1a3a);display:flex;align-items:center}
 .stars span{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:tw 3s infinite}
 @keyframes tw{50%{opacity:.15;transform:scale(1.8)}}
 .moon{position:absolute;top:9%;right:12%;width:90px;height:90px;border-radius:50%;background:#fff6d6;box-shadow:0 0 60px 20px rgba(255,246,214,.25);animation:fl 7s ease-in-out infinite}
@@ -22,7 +22,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 .layer svg{display:block;width:100%;height:auto}
 .fl{position:absolute;font-size:2rem;animation:fl 6s ease-in-out infinite;opacity:.9;z-index:2;filter:drop-shadow(0 0 8px rgba(255,255,255,.3))}
 @keyframes fl{50%{transform:translateY(-22px) rotate(6deg)}}
-.hero-in{position:relative;z-index:3;padding:90px 0 200px}
+.hero-in{position:relative;z-index:3;padding:90px 20px 200px}
+@media (max-width:600px){.fl{opacity:.35}}
 .hud{display:inline-block;padding:4px 12px;border:1.5px solid var(--green);color:var(--green);border-radius:6px;font-size:.8rem;letter-spacing:.08em}
 h1{font-size:clamp(2.4rem,8vw,4.6rem);line-height:1.05;margin:.3em 0}
 h1 em{font-style:normal;background:linear-gradient(90deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -91,7 +92,7 @@ footer{padding:40px 0 60px;text-align:center;color:var(--muted)}
 
   <div class="wrap hero-in">
     <span class="hud mono">PLAYER 1 · NIVEL: ESTUDIANTE</span>
-    <h1>Ángel Antonio<br><em>Riquelme</em></h1>
+    <h1>Angel Antonio<br><em>Riquelme</em></h1>
     <div class="type mono" id="type"></div>
     <p style="color:var(--muted);max-width:560px;font-size:1.1rem">De Wanda, viviendo en Posadas, Misiones. Me apasiona la tecnología y estoy construyendo mi camino, un nivel a la vez.</p>
     <a class="btn" href="#proyectos">Ver proyectos</a><a class="btn alt" href="#contacto">Contactame</a>
