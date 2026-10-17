@@ -172,7 +172,8 @@ dialog .cierre{position:absolute;top:-46px;right:0;padding:8px 16px;border:0;bor
 <header class="barra">
   <a class="marca" href="#inicio">Ángel Riquelme</a>
   <nav aria-label="Principal">
-    <a href="#proyectos">Proyectos</a>
+    <a href="#proyectos">Carnicería</a>
+    <a href="#consultorio">Consultorio</a>
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#contacto">Contacto</a>
   </nav>
@@ -190,7 +191,7 @@ dialog .cierre{position:absolute;top:-46px;right:0;padding:8px 16px;border:0;bor
       <a class="boton negro" href="#proyectos">Ver proyectos</a>
       <a class="boton claro" href="#contacto">Contacto</a>
     </div>
-    <div class="datos"><span>Sistemas offline</span><span>PHP · SQLite · Electron · JavaScript</span><span>Con pruebas automáticas</span></div>
+    <div class="datos"><span>De escritorio y en la web</span><span>PHP · SQLite · PostgreSQL · JavaScript</span><span>Con pruebas automáticas</span></div>
   </div>
   <div class="colinas" aria-hidden="true">
     <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
@@ -253,6 +254,59 @@ dialog .cierre{position:absolute;top:-46px;right:0;padding:8px 16px;border:0;bor
       <article><small>03 · Entrega</small><h3>Instalación y respaldo</h3><p>Carpeta portable lista para llevar, datos que se pueden copiar a un pendrive y soporte con solo recibir la carpeta.</p></article>
     </div>
     <p class="nota">Las capturas usan datos de ejemplo.</p>
+  </div>
+</section>
+
+<section class="destacado" id="consultorio">
+  <div class="contenedor">
+    <span class="sobretitulo">Proyecto destacado</span>
+    <h2>Sitio web y turnos <span class="serif">para un consultorio odontológico.</span></h2>
+    <p class="intro">Para la Dra. Liliana A. Riquelme, odontóloga en Wanda y Puerto Libertad, Misiones. Los pacientes eligen lugar, día y horario desde el celular, y la doctora ve y agenda los pedidos desde un panel propio. Hoy funciona con datos de prueba, mientras se termina la revisión legal.</p>
+
+    <div class="marco" role="group" aria-label="Capturas del sitio y del panel">
+      <div class="barra-ventana"><i></i><i></i><i></i><span>Consultorio odontológico · sitio y panel</span></div>
+      <button type="button" class="pantalla" aria-label="Ampliar la captura"><img src="img/consultorio/portada.jpg" alt="Portada del sitio, con la doctora y los datos de atención" width="1280" height="780"></button>
+    </div>
+    <div class="pestanas" role="tablist" aria-label="Pantallas del sitio y del panel">
+      <button type="button" role="tab" aria-selected="true" data-img="img/consultorio/portada.jpg" data-alt="Portada del sitio, con la doctora y los datos de atención" data-t="La portada: red de hexágonos animada y botones para pedir turno, escribir por WhatsApp y llegar al consultorio.">Portada</button>
+      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/lugares.jpg" data-alt="Lugares y horarios de atención en Wanda y Puerto Libertad" data-t="Dónde y cuándo atiende: Wanda de lunes a viernes y Puerto Libertad los martes y jueves, con la ruta en Google Maps.">Lugares</button>
+      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/turnos.jpg" data-alt="Formulario para pedir turno, con el día y el horario elegidos" data-t="Pedir turno: solo aparecen los días y horarios de atención del lugar elegido, y los ocupados no se pueden elegir.">Turnos</button>
+      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/panel.jpg" data-alt="Panel de la doctora con dos solicitudes de ejemplo" data-t="El panel de la doctora: cada solicitud llega con el día, la hora y el lugar elegidos, y se agenda con un toque.">Panel</button>
+    </div>
+    <p class="leyenda">La portada: red de hexágonos animada y botones para pedir turno, escribir por WhatsApp y llegar al consultorio.</p>
+
+    <div class="hechos">
+      <div><b>Horarios protegidos</b><span>La base rechaza horarios ocupados o fuera de atención, aunque se saltee la página.</span></div>
+      <div><b>Datos cuidados</b><span>Aviso de privacidad, sin cookies y acceso restringido a la doctora.</span></div>
+      <div><b>Con copia de seguridad</b><span>Se descarga con un botón y se probó restaurarla.</span></div>
+      <div><b>Siempre disponible</b><span>Publicación automática y una tarea diaria que evita que la base se pause.</span></div>
+    </div>
+
+    <div class="dos">
+      <div>
+        <h3>Qué hace</h3>
+        <ul class="lista">
+          <li><b>Elegir lugar, día y horario.</b> Solo aparecen los días y horas en que la doctora atiende en cada lugar; lo ocupado no se puede elegir.</li>
+          <li><b>Panel con ingreso.</b> Solicitudes con el horario pedido, agenda por día, aviso por WhatsApp y copia de seguridad.</li>
+          <li><b>Reglas en la base de datos.</b> Restricciones de exclusión, validación en un disparador y reglas de acceso por fila en PostgreSQL.</li>
+          <li><b>Privacidad.</b> Aviso según la Ley 25.326, tipografías propias y encabezados de seguridad.</li>
+          <li><b>Diseño con movimiento.</b> Canvas animado, parallax y menú a pantalla completa, que se quedan quietos si la persona pidió menos movimiento.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tecnologías</h3>
+        <div class="tecnologias"><span>HTML y CSS</span><span>JavaScript</span><span>PostgreSQL</span><span>Supabase</span><span>Netlify</span><span>GitHub Actions</span></div>
+        <h3 style="margin-top:28px">Accesos</h3>
+        <p style="margin:0;color:var(--suave)">El visitante solo puede pedir turno y ver qué horarios están libres. Los datos de los pacientes los ve únicamente la doctora, con usuario y contraseña, y la base lo exige: no alcanza con ocultarlos en la pantalla.</p>
+      </div>
+    </div>
+
+    <div class="proceso">
+      <article><small>01 · Requisitos</small><h3>Primero lo escrito</h3><p>Requisitos, diseño y reglas de privacidad por escrito antes de programar, con las decisiones justificadas.</p></article>
+      <article><small>02 · Pruebas</small><h3>40 pruebas de la agenda</h3><p>Sobre una base PostgreSQL con los roles reales: horarios inválidos, ocupados, fuera de atención y accesos no permitidos.</p></article>
+      <article><small>03 · Entrega</small><h3>Publicación y respaldo</h3><p>Despliegue automático, cambios de la base versionados y copias de seguridad que se pueden restaurar.</p></article>
+    </div>
+    <p class="nota">Las capturas del panel usan datos de ejemplo. Proyecto publicado con la autorización de la doctora.</p>
   </div>
 </section>
 
@@ -344,15 +398,17 @@ dialog .cierre{position:absolute;top:-46px;right:0;padding:8px 16px;border:0;bor
 <script>
 (function(){
   var $=function(i){return document.getElementById(i)};
-  /* pestañas de capturas */
-  var img=$("captura"),ley=$("leyenda"),pant=$("pantalla");
-  var pestanas=document.querySelectorAll(".pestanas button");
-  pestanas.forEach(function(b){b.addEventListener("click",function(){
-    pestanas.forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false")});
-    img.src=b.dataset.img;img.alt=b.dataset.alt;ley.textContent=b.dataset.t})});
   /* visor ampliado */
   var visor=$("visor"),vi=visor.querySelector("img"),vp=visor.querySelector("p");
-  pant.addEventListener("click",function(){vi.src=img.src;vi.alt=img.alt;vp.textContent=ley.textContent;visor.showModal()});
+  /* pestañas de capturas: una galería por cada proyecto destacado */
+  document.querySelectorAll(".destacado").forEach(function(sec){
+    var img=sec.querySelector(".pantalla img"),ley=sec.querySelector(".leyenda"),pant=sec.querySelector(".pantalla");
+    var pestanas=sec.querySelectorAll(".pestanas button");
+    pestanas.forEach(function(b){b.addEventListener("click",function(){
+      pestanas.forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false")});
+      img.src=b.dataset.img;img.alt=b.dataset.alt;ley.textContent=b.dataset.t})});
+    pant.addEventListener("click",function(){vi.src=img.src;vi.alt=img.alt;vp.textContent=ley.textContent;visor.showModal()});
+  });
   /* juego */
   var juego=$("juego");
   $("jugar").addEventListener("click",function(){var f=juego.querySelector("iframe");if(!f.src)f.src="https://w1sar.github.io/gato-misionero/";juego.showModal()});
