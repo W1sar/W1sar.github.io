@@ -3,420 +3,295 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Ángel Antonio Riquelme, técnico informático y estudiante de Ingeniería en Informática en Posadas, Misiones. Desarrollo de software a medida, de los requisitos a la instalación.">
-<meta name="theme-color" content="#0b3a2b">
-<title>Ángel Antonio Riquelme · Desarrollo de software</title>
-<style>
-@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url("fonts/inter-latin-500-normal.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
-@font-face{font-family:"Instrument Serif";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/instrument-serif-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Instrument Serif";font-weight:400;font-style:italic;font-display:swap;src:url("fonts/instrument-serif-latin-400-italic.woff2") format("woff2")}
-
-:root{
-  --fondo:#f6f7f4; --tinta:#0f1713; --suave:#56635b; --linea:#dfe4de; --papel:#ffffff;
-  --selva:#0b3a2b; --verde:#1d6b52; --tierra:#b5472a;
-  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--fondo);color:var(--tinta);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-img{max-width:100%}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--verde);outline-offset:3px;border-radius:6px}
-.contenedor{width:min(1120px,100% - 40px);margin-inline:auto}
-.serif{font-family:var(--serif);font-style:italic;font-weight:400}
-
-/* ---------- Barra ---------- */
-.barra{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 16px;border-radius:999px;background:rgba(9,28,21,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);color:#fff;max-width:calc(100% - 24px)}
-.barra .marca{font-weight:600;letter-spacing:-.01em;text-decoration:none;margin-right:10px;white-space:nowrap}
-.barra nav{display:flex;gap:2px}
-.barra nav a{padding:7px 13px;border-radius:999px;font-size:.88rem;color:rgba(255,255,255,.82);text-decoration:none;transition:background .2s,color .2s}
-.barra nav a:hover{background:rgba(255,255,255,.12);color:#fff}
-.barra .escribir{padding:8px 15px;border-radius:999px;background:#fff;color:var(--tinta);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap}
-
-/* ---------- Portada ---------- */
-.portada{position:relative;display:flex;flex-direction:column;min-height:min(100svh,860px);padding:150px 0 0;color:#fff;text-align:center;overflow:hidden;
-  background:
-    radial-gradient(900px 420px at 50% -6%,rgba(190,235,214,.28),transparent 70%),
-    linear-gradient(180deg,#0a3326 0%,#0e4a37 30%,#2c8267 58%,#a8cfbf 80%,var(--fondo) 100%)}
-.portada .contenedor{position:relative;z-index:2}
-.etiqueta{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:.85rem;font-weight:500}
-.etiqueta i{width:7px;height:7px;border-radius:50%;background:#7be0ae;box-shadow:0 0 0 4px rgba(123,224,174,.22)}
-h1{font-size:clamp(2.5rem,7vw,4.8rem);line-height:1.02;letter-spacing:-.035em;font-weight:600;margin:22px auto 0;max-width:12.5em}
-h1 .serif{display:block;font-size:1.12em;letter-spacing:-.01em;font-weight:400;color:#e8f6ee;margin-top:.04em}
-.bajada{max-width:38em;margin:22px auto 0;font-size:clamp(1rem,2.1vw,1.15rem);color:rgba(255,255,255,.86)}
-.acciones{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
-.boton{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font:600 .95rem var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,border-color .2s}
-.boton:hover{transform:translateY(-2px)}
-.boton.negro{background:#08100c;color:#fff}
-.boton.negro:hover{background:#000}
-.boton.claro{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.34);color:#fff}
-.boton.claro:hover{background:rgba(255,255,255,.18)}
-.datos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:22px;font-size:.82rem;color:rgba(255,255,255,.7)}
-.colinas{position:relative;display:block;width:100%;height:clamp(110px,18vw,220px);margin-top:auto;padding-top:clamp(30px,6vw,70px);flex:none}
-.colinas svg{position:absolute;left:0;bottom:-1px;width:100%;height:100%;display:block}
-
-/* ---------- Secciones ---------- */
-section{padding:clamp(56px,9vw,104px) 0}
-.sobretitulo{font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--verde)}
-h2{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.08;letter-spacing:-.03em;font-weight:600;margin:10px 0 0;max-width:16em}
-h2 .serif{font-size:1.1em;letter-spacing:-.01em}
-.intro{max-width:42em;color:var(--suave);font-size:1.06rem;margin:16px 0 0}
-
-/* Proyecto destacado */
-.destacado{padding-top:clamp(30px,5vw,60px)}
-.marco{margin-top:38px;border-radius:20px;background:#0c1511;box-shadow:0 40px 80px -40px rgba(15,23,19,.55),0 0 0 1px rgba(15,23,19,.08);overflow:hidden}
-.marco .barra-ventana{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#16211b}
-.marco .barra-ventana i{width:11px;height:11px;border-radius:50%;background:#2d3b33}
-.marco .barra-ventana span{margin-left:10px;font-size:.78rem;color:#8fa398}
-.marco .pantalla{display:block;width:100%;padding:0;border:0;background:#000;cursor:zoom-in}
-.marco .pantalla img{display:block;width:100%;height:auto}
-.pestanas{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-.pestanas button{padding:8px 16px;border-radius:999px;border:1px solid var(--linea);background:var(--papel);font:500 .88rem var(--sans);color:var(--suave);cursor:pointer;transition:all .2s}
-.pestanas button:hover{border-color:#b6c1b9;color:var(--tinta)}
-.pestanas button[aria-selected="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
-.leyenda{margin:12px 0 0;color:var(--suave);font-size:.92rem;min-height:1.6em}
-.hechos{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border-block:1px solid var(--linea)}
-.hechos div{padding:22px 22px 22px 0}
-.hechos div+div{padding-left:22px;border-left:1px solid var(--linea)}
-.hechos b{display:block;font-size:1.02rem;letter-spacing:-.01em}
-.hechos span{display:block;margin-top:4px;color:var(--suave);font-size:.9rem}
-.dos{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,6vw,80px);margin-top:54px}
-.dos h3{font-size:1.15rem;letter-spacing:-.015em;margin:0 0 14px}
-.lista{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.lista li{position:relative;padding-left:26px;color:#26322b}
-.lista li::before{content:"";position:absolute;left:2px;top:.62em;width:12px;height:2px;background:var(--tierra);border-radius:2px}
-.lista li b{font-weight:600;color:var(--tinta)}
-.tecnologias{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.tecnologias span{padding:6px 14px;border-radius:999px;background:var(--papel);border:1px solid var(--linea);font-size:.86rem;font-weight:500}
-.proceso{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}
-.proceso article{padding:24px;border-radius:18px;background:var(--papel);border:1px solid var(--linea)}
-.proceso small{display:block;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tierra)}
-.proceso h3{margin:10px 0 6px;font-size:1.08rem;letter-spacing:-.015em}
-.proceso p{margin:0;color:var(--suave);font-size:.95rem}
-.nota{margin-top:22px;font-size:.84rem;color:var(--suave)}
-
-/* Otros proyectos */
-.otros{background:var(--papel);border-block:1px solid var(--linea)}
-.tarjetas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
-.tarjeta{display:flex;flex-direction:column;padding:26px;border-radius:18px;background:var(--fondo);border:1px solid var(--linea);transition:border-color .2s,transform .2s}
-.tarjeta:hover{border-color:#b6c1b9;transform:translateY(-3px)}
-.tarjeta h3{margin:0 0 8px;font-size:1.2rem;letter-spacing:-.02em}
-.tarjeta p{margin:0 0 18px;color:var(--suave);font-size:.96rem}
-.tarjeta .estado{font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);margin-bottom:14px}
-.tarjeta .enlaces{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-.enlace{display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;border:1px solid #bcc7bf;background:transparent;font:500 .88rem var(--sans);text-decoration:none;color:var(--tinta);cursor:pointer;transition:background .2s,border-color .2s}
-.enlace:hover{background:var(--tinta);border-color:var(--tinta);color:#fff}
-.tarjeta.proximo{background:transparent;border-style:dashed}
-.tarjeta.proximo:hover{transform:none;border-color:var(--linea)}
-
-/* Sobre mí */
-.sobre{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,6vw,80px);margin-top:36px}
-.sobre p{margin:0 0 16px;color:#26322b;font-size:1.04rem}
-.formacion{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
-.formacion li{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid var(--linea)}
-.formacion b{display:block;font-weight:600}
-.formacion small{display:block;color:var(--suave);font-size:.88rem}
-.formacion em a{color:inherit}
-.formacion em{font-style:normal;font-size:.82rem;color:var(--verde);font-weight:600;white-space:nowrap;padding-top:2px}
-.fuera{margin-top:26px;color:var(--suave);font-size:.95rem}
-.fuera b{color:var(--tinta);font-weight:600}
-
-/* Contacto */
-.contacto{padding-top:0}
-.panel{position:relative;overflow:hidden;border-radius:28px;padding:clamp(36px,7vw,78px) clamp(24px,6vw,70px) clamp(110px,15vw,170px);text-align:center;color:#fff;background:linear-gradient(180deg,#0a3326,#0e4a37 60%,#1f6f55)}
-.panel h2{margin-inline:auto;max-width:14em}
-.panel h2 .serif{color:#e8f6ee}
-.panel p{max-width:34em;margin:16px auto 0;color:rgba(255,255,255,.82)}
-.panel .acciones{margin-top:28px}
-.panel svg{position:absolute;left:0;bottom:-1px;width:100%;height:clamp(70px,10vw,120px);opacity:.9;pointer-events:none}
-.panel .contenido{position:relative;z-index:1}
-footer{padding:34px 0 50px;color:var(--suave);font-size:.88rem}
-footer .contenedor{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
-
-/* Visor */
-dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible}
-dialog::backdrop{background:rgba(6,12,9,.82)}
-dialog .cierre{position:absolute;top:-46px;right:0;padding:8px 16px;border:0;border-radius:999px;background:#fff;color:var(--tinta);font:600 .88rem var(--sans);cursor:pointer}
-#visor img{display:block;max-width:min(1100px,94vw);max-height:84vh;border-radius:12px}
-#visor p{margin:10px 0 0;text-align:center;color:#e6efe9;font-size:.92rem;max-width:min(1100px,94vw)}
-#juego iframe{display:block;width:min(400px,94vw);height:min(640px,82vh);border:0;border-radius:14px;background:#000}
-
-/* Entrada de la portada: una sola vez */
-@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.portada .contenedor>*{animation:entra .7s both}
-.portada .contenedor>*:nth-child(2){animation-delay:.08s}.portada .contenedor>*:nth-child(3){animation-delay:.16s}
-.portada .contenedor>*:nth-child(4){animation-delay:.24s}.portada .contenedor>*:nth-child(5){animation-delay:.32s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-@media (max-width:880px){
-  .hechos{grid-template-columns:1fr 1fr}
-  .hechos div:nth-child(3){padding-left:0;border-left:0}
-  .hechos div:nth-child(n+3){border-top:1px solid var(--linea)}
-  .dos,.sobre{grid-template-columns:1fr}
-  .proceso,.tarjetas{grid-template-columns:1fr}
-}
-@media (max-width:600px){
-  .barra nav{display:none}
-  .portada{padding-top:120px}
-  .hechos div{padding-right:12px}
-  .hechos div+div{padding-left:14px}
-  .marco .barra-ventana span{display:none}
-  .formacion li{flex-direction:column;gap:4px}
-}
-</style>
+<title>Ángel Antonio Riquelme · Desarrollo de software a medida</title>
+<meta name="description" content="Ángel Antonio Riquelme, técnico informático y estudiante de Ingeniería en Informática en Posadas, Misiones. Webs, sistemas de gestión y bots de IA a medida, de los requisitos a la instalación.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Ángel Antonio Riquelme · Software a medida que se usa">
+<meta property="og:description" content="Webs, sistemas de gestión y bots de IA a medida, de los requisitos a la instalación. Posadas, Misiones.">
+<meta property="og:url" content="https://w1sar.github.io/">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+<script>
+/* Marca JS y decide si se salta el preloader (misma sesión o poco movimiento) antes del primer render */
+(function(d){d.className+=" js";var s=0;try{s=sessionStorage.getItem("cine-visto")}catch(e){}
+if(s||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches))d.className+=" sin-pre"})(document.documentElement);
+</script>
+<noscript><style>#pre{display:none!important}</style></noscript>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<header class="barra">
-  <a class="marca" href="#inicio">Ángel Riquelme</a>
-  <nav aria-label="Principal">
-    <a href="#proyectos">Carnicería</a>
-    <a href="#consultorio">Consultorio</a>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  <a class="escribir" href="mailto:angelriquelme573@gmail.com">Escribime</a>
-</header>
-
-<main id="inicio">
-
-<div class="portada">
-  <div class="contenedor">
-    <span class="etiqueta"><i></i>Técnico Informático · Posadas, Misiones</span>
-    <h1>Software a medida<span class="serif">que se usa todos los días.</span></h1>
-    <p class="bajada">Soy Ángel Antonio Riquelme, estudiante de Ingeniería en Informática. Desarrollo sistemas de punta a punta: desde entender el negocio hasta instalarlo en el local del cliente.</p>
-    <div class="acciones">
-      <a class="boton negro" href="#proyectos">Ver proyectos</a>
-      <a class="boton claro" href="#contacto">Contacto</a>
-    </div>
-    <div class="datos"><span>De escritorio y en la web</span><span>PHP · SQLite · PostgreSQL · JavaScript</span><span>Con pruebas automáticas</span></div>
-  </div>
-  <div class="colinas" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-      <path d="M0 120 C180 40 340 60 520 110 S880 190 1100 110 1340 40 1440 80 V220 H0Z" fill="#1d6b52" opacity=".55"/>
-      <path d="M0 150 C220 90 380 120 600 150 S1000 200 1200 140 1380 100 1440 120 V220 H0Z" fill="#b5472a" opacity=".78"/>
-      <path d="M0 190 C260 150 520 190 760 185 S1200 160 1440 185 V220 H0Z" fill="#f6f7f4"/>
-    </svg>
-  </div>
+<!-- ESCENA 0: preloader (no cuenta en el HUD) -->
+<div id="pre" role="status" aria-label="Cargando el portafolio">
+  <div class="pre-top mono"><span>ANGEL RIQUELME</span><button type="button" id="pre-skip" class="mono">[ SKIP &gt; ]</button></div>
+  <div class="pre-num" aria-hidden="true"><span id="pre-n">00</span></div>
+  <div class="pre-pie mono"><span>PORTAFOLIO 2026 — POSADAS, MISIONES</span><span id="pre-pct">0%</span></div>
+  <div class="pre-linea" aria-hidden="true"><i id="pre-barra"></i></div>
 </div>
 
-<section class="destacado" id="proyectos">
-  <div class="contenedor">
-    <span class="sobretitulo">Proyecto destacado</span>
-    <h2>Sistema de caja y stock <span class="serif">para una carnicería.</span></h2>
-    <p class="intro">Una aplicación de escritorio para Carnicería Angel, una carnicería con almacén. Funciona completa sin internet en una sola computadora y se entrega como una carpeta que se abre con doble clic.</p>
+<header class="barra">
+  <a class="marca mono" href="#inicio" data-ancla>ÁNGEL RIQUELME</a>
+  <nav class="mono" aria-label="Principal">
+    <a href="#proyectos" data-ancla>Proyectos</a>
+    <a href="#casos" data-ancla>Casos</a>
+    <a href="#sobre-mi" data-ancla>Sobre mí</a>
+    <a href="#armar" data-ancla>Armá tu proyecto</a>
+  </nav>
+  <a class="barra-cta mono" href="#contacto" data-ancla>Contacto</a>
+</header>
 
-    <div class="marco" role="group" aria-label="Capturas del sistema">
-      <div class="barra-ventana"><i></i><i></i><i></i><span>Carnicería Angel · caja y stock</span></div>
-      <button type="button" class="pantalla" id="pantalla" aria-label="Ampliar la captura"><img id="captura" src="img/carniceria/caja.jpg" alt="Pantalla de caja con una venta armada" width="1280" height="780"></button>
-    </div>
-    <div class="pestanas" role="tablist" aria-label="Pantallas del sistema">
-      <button type="button" role="tab" aria-selected="true" data-img="img/carniceria/caja.jpg" data-alt="Pantalla de caja con una venta armada" data-t="La caja: ticket de venta con el total en cifras grandes y la etiqueta de la balanza.">Caja</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/carniceria/cobro-cuenta-corriente.jpg" data-alt="Cobro a cuenta corriente eligiendo al cliente" data-t="Cobro con cinco medios de pago, incluida la venta a cuenta corriente.">Cobro</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/carniceria/cuenta-cliente.jpg" data-alt="Cuenta corriente de un cliente" data-t="Cuenta de un cliente: ventas, pagos con fecha y hora y saldo después de cada movimiento.">Clientes</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/carniceria/proveedor.jpg" data-alt="Cuenta de un proveedor" data-t="Proveedores: compras con factura o recibo, a crédito o de contado, y pagos.">Proveedores</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/carniceria/resumen.jpg" data-alt="Resumen del día" data-t="Resumen del día: ventas por medio de pago, cobranzas y ganancia.">Resumen</button>
-    </div>
-    <p class="leyenda" id="leyenda">La caja: ticket de venta con el total en cifras grandes y la etiqueta de la balanza.</p>
+<!-- HUD persistente -->
+<aside class="hud mono" aria-hidden="true">
+  <div class="hud-fila"><b id="hud-n">01</b><span class="hud-sep">/ 06</span><span id="hud-nombre">INICIO</span></div>
+  <div class="hud-barra"><i id="hud-prog"></i></div>
+</aside>
 
-    <div class="hechos">
-      <div><b>Sin internet</b><span>Todo funciona en la computadora del local.</span></div>
-      <div><b>Un doble clic</b><span>Carpeta portable con su propio ícono.</span></div>
-      <div><b>A prueba de cortes de luz</b><span>Una venta se guarda entera o no se guarda.</span></div>
-      <div><b>Copias automáticas</b><span>Una copia de la base cada vez que se abre.</span></div>
-    </div>
+<div class="grano" aria-hidden="true"></div>
 
-    <div class="dos">
-      <div>
-        <h3>Qué hace</h3>
-        <ul class="lista">
-          <li><b>Caja con lector y balanza.</b> Lee códigos de barras y las etiquetas de la balanza con peso e importe.</li>
-          <li><b>Cobro con cinco medios.</b> Efectivo con vuelto, débito, crédito, transferencia y cuenta corriente.</li>
-          <li><b>Stock con historial.</b> Cada cambio queda registrado con quién, cuándo y por qué.</li>
-          <li><b>Proveedores.</b> Compras con factura o recibo, a crédito o de contado, y pagos en efectivo, transferencia o posnet.</li>
-          <li><b>Clientes con cuenta corriente.</b> Saldo, pagos con fecha y hora y saldo a favor para compras futuras.</li>
-          <li><b>Resumen del día.</b> Ventas por medio de pago, cobranzas y ganancia.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Tecnologías</h3>
-        <div class="tecnologias"><span>PHP</span><span>SQLite</span><span>Electron</span><span>JavaScript</span><span>HTML y CSS</span></div>
-        <h3 style="margin-top:28px">Permisos</h3>
-        <p style="margin:0;color:var(--suave)">Dos roles, encargado y cajero. El cajero nunca recibe costos, márgenes ni saldos de clientes: el servidor no los envía, no alcanza con ocultarlos en pantalla.</p>
-      </div>
-    </div>
+<main id="contenido">
 
-    <div class="proceso">
-      <article><small>01 · Requisitos</small><h3>Primero la especificación</h3><p>Reglas de negocio, funciones y mensajes por escrito, con decisiones técnicas justificadas, antes de programar.</p></article>
-      <article><small>02 · Pruebas</small><h3>Con pruebas automáticas</h3><p>Las reglas del dominio, la base de datos, el servidor y la pantalla se prueban solas, incluidas las migraciones de datos.</p></article>
-      <article><small>03 · Entrega</small><h3>Instalación y respaldo</h3><p>Carpeta portable lista para llevar, datos que se pueden copiar a un pendrive y soporte con solo recibir la carpeta.</p></article>
+<!-- ESCENA 01 · INICIO -->
+<section class="escena hero" id="inicio" data-escena="1" data-nombre="INICIO" aria-labelledby="h-titulo">
+  <div class="luz" aria-hidden="true"></div>
+  <div class="contenedor hero-in">
+    <p class="mono hero-meta" data-h><span>Técnico informático</span><span class="sep" aria-hidden="true">/</span><span>Posadas, Misiones</span></p>
+    <h1 id="h-titulo" class="display">
+      <span class="linea"><span data-h>SOFTWARE A MEDIDA</span></span>
+      <span class="linea acento"><span data-h>QUE SE USA.</span></span>
+    </h1>
+    <p class="mono sub" data-h>Técnico informático e ingeniería en curso. Construyo webs, sistemas de gestión y bots de IA, de los requisitos a la instalación.</p>
+    <div class="hero-acc" data-h>
+      <a class="cta" href="#proyectos" data-ancla data-scramble><span class="cta-t mono">[ VER PROYECTOS ]</span></a>
+      <a class="cta-sec mono" href="#armar" data-ancla>Armá tu proyecto →</a>
     </div>
-    <p class="nota">Las capturas usan datos de ejemplo.</p>
+  </div>
+  <div class="scroll-guia mono" aria-hidden="true"><span>SCROLL TO EXPLORE</span><i></i></div>
+</section>
+
+<!-- ESCENA 02 · PROYECTOS (profundidad + partículas) -->
+<section class="escena prof" id="proyectos" data-escena="2" data-nombre="PROYECTOS" aria-labelledby="p-titulo">
+  <canvas id="particulas" aria-hidden="true"></canvas>
+  <div class="prof-fondo display" aria-hidden="true">
+    <span data-fx="-1">DE LA IDEA A</span>
+    <span data-fx="1" class="acento">PRODUCCIÓN.</span>
+  </div>
+  <div class="contenedor prof-in">
+    <p class="mono etiqueta">02 — Proyectos reales</p>
+    <h2 id="p-titulo" class="titulo-sec">Cuatro cosas que ya funcionan.</h2>
+    <div class="prof-cards">
+      <a class="pcard" href="#caso-1" data-ancla data-z="0.9">
+        <span class="pcard-media"><picture><source srcset="img/carniceria/caja.avif" type="image/avif"><source srcset="img/carniceria/caja.webp" type="image/webp"><img src="img/carniceria/caja.jpg" alt="Pantalla de caja con una venta armada" width="1280" height="780" loading="lazy"></picture></span>
+        <span class="mono p-n">01</span><b>Caja y stock</b><span class="p-d">Sistema de escritorio para una carnicería. Funciona sin internet.</span><span class="mono p-ir" aria-hidden="true">Ver caso →</span>
+      </a>
+      <a class="pcard" href="#caso-2" data-ancla data-z="0.4">
+        <span class="pcard-media"><picture><source srcset="img/consultorio/portada.avif" type="image/avif"><source srcset="img/consultorio/portada.webp" type="image/webp"><img src="img/consultorio/portada.jpg" alt="Portada del sitio del consultorio" width="1280" height="780" loading="lazy"></picture></span>
+        <span class="mono p-n">02</span><b>Turnos y panel</b><span class="p-d">Sitio web y agenda para un consultorio odontológico.</span><span class="mono p-ir" aria-hidden="true">Ver caso →</span>
+      </a>
+      <a class="pcard texto" href="#caso-3" data-ancla data-z="0.7">
+        <span class="mono p-n">03</span><b>Hiro Digital</b><span class="p-d">Mi agencia: webs y sistemas a medida. Sitio publicado, hecho a mano.</span><span class="mono p-ir" aria-hidden="true">Ver caso →</span>
+      </a>
+      <a class="pcard texto" href="#caso-4" data-ancla data-z="0.2">
+        <span class="mono p-n">04</span><b>Gato Misionero</b><span class="p-d">Minijuego en Canvas 2D, sin librerías, con control táctil.</span><span class="mono p-ir" aria-hidden="true">Ver caso →</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="destacado" id="consultorio">
-  <div class="contenedor">
-    <span class="sobretitulo">Proyecto destacado</span>
-    <h2>Sitio web y turnos <span class="serif">para un consultorio odontológico.</span></h2>
-    <p class="intro">Para la Dra. Liliana A. Riquelme, odontóloga en Wanda y Puerto Libertad, Misiones. Los pacientes eligen lugar, día y horario desde el celular, y la doctora ve y agenda los pedidos desde un panel propio. Hoy funciona con datos de prueba, mientras se termina la revisión legal.</p>
-
-    <div class="marco" role="group" aria-label="Capturas del sitio y del panel">
-      <div class="barra-ventana"><i></i><i></i><i></i><span>Consultorio odontológico · sitio y panel</span></div>
-      <button type="button" class="pantalla" aria-label="Ampliar la captura"><img src="img/consultorio/portada.jpg" alt="Portada del sitio, con la doctora y los datos de atención" width="1280" height="780"></button>
+<!-- ESCENA 03 · CASOS (horizontal anclado en desktop) -->
+<section class="escena casos" id="casos" data-escena="3" data-nombre="CASOS" aria-labelledby="c-titulo">
+  <div class="casos-pin">
+    <div class="casos-cab contenedor">
+      <p class="mono etiqueta">03 — Casos de estudio</p>
+      <h2 id="c-titulo" class="titulo-sec">Del requisito a la entrega.</h2>
     </div>
-    <div class="pestanas" role="tablist" aria-label="Pantallas del sitio y del panel">
-      <button type="button" role="tab" aria-selected="true" data-img="img/consultorio/portada.jpg" data-alt="Portada del sitio, con la doctora y los datos de atención" data-t="La portada: red de hexágonos animada y botones para pedir turno, escribir por WhatsApp y llegar al consultorio.">Portada</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/lugares.jpg" data-alt="Lugares y horarios de atención en Wanda y Puerto Libertad" data-t="Dónde y cuándo atiende: Wanda de lunes a viernes y Puerto Libertad los martes y jueves, con la ruta en Google Maps.">Lugares</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/turnos.jpg" data-alt="Formulario para pedir turno, con el día y el horario elegidos" data-t="Pedir turno: solo aparecen los días y horarios de atención del lugar elegido, y los ocupados no se pueden elegir.">Turnos</button>
-      <button type="button" role="tab" aria-selected="false" data-img="img/consultorio/panel.jpg" data-alt="Panel de la doctora con dos solicitudes de ejemplo" data-t="El panel de la doctora: cada solicitud llega con el día, la hora y el lugar elegidos, y se agenda con un toque.">Panel</button>
-    </div>
-    <p class="leyenda">La portada: red de hexágonos animada y botones para pedir turno, escribir por WhatsApp y llegar al consultorio.</p>
+    <div class="casos-pista">
 
-    <div class="hechos">
-      <div><b>Horarios protegidos</b><span>La base rechaza horarios ocupados o fuera de atención, aunque se saltee la página.</span></div>
-      <div><b>Datos cuidados</b><span>Aviso de privacidad, sin cookies y acceso restringido a la doctora.</span></div>
-      <div><b>Con copia de seguridad</b><span>Se descarga con un botón y se probó restaurarla.</span></div>
-      <div><b>Siempre disponible</b><span>Publicación automática y una tarea diaria que evita que la base se pause.</span></div>
-    </div>
-
-    <div class="dos">
-      <div>
-        <h3>Qué hace</h3>
-        <ul class="lista">
-          <li><b>Elegir lugar, día y horario.</b> Solo aparecen los días y horas en que la doctora atiende en cada lugar; lo ocupado no se puede elegir.</li>
-          <li><b>Panel con ingreso.</b> Solicitudes con el horario pedido, agenda por día, aviso por WhatsApp y copia de seguridad.</li>
-          <li><b>Reglas en la base de datos.</b> Restricciones de exclusión, validación en un disparador y reglas de acceso por fila en PostgreSQL.</li>
-          <li><b>Privacidad.</b> Aviso según la Ley 25.326, tipografías propias y encabezados de seguridad.</li>
-          <li><b>Diseño con movimiento.</b> Canvas animado, parallax y menú a pantalla completa, que se quedan quietos si la persona pidió menos movimiento.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Tecnologías</h3>
-        <div class="tecnologias"><span>HTML y CSS</span><span>JavaScript</span><span>PostgreSQL</span><span>Supabase</span><span>Netlify</span><span>GitHub Actions</span></div>
-        <h3 style="margin-top:28px">Accesos</h3>
-        <p style="margin:0;color:var(--suave)">El visitante solo puede pedir turno y ver qué horarios están libres. Los datos de los pacientes los ve únicamente la doctora, con usuario y contraseña, y la base lo exige: no alcanza con ocultarlos en la pantalla.</p>
-      </div>
-    </div>
-
-    <div class="proceso">
-      <article><small>01 · Requisitos</small><h3>Primero lo escrito</h3><p>Requisitos, diseño y reglas de privacidad por escrito antes de programar, con las decisiones justificadas.</p></article>
-      <article><small>02 · Pruebas</small><h3>40 pruebas de la agenda</h3><p>Sobre una base PostgreSQL con los roles reales: horarios inválidos, ocupados, fuera de atención y accesos no permitidos.</p></article>
-      <article><small>03 · Entrega</small><h3>Publicación y respaldo</h3><p>Despliegue automático, cambios de la base versionados y copias de seguridad que se pueden restaurar.</p></article>
-    </div>
-    <p class="nota">Las capturas del panel usan datos de ejemplo. Proyecto publicado con la autorización de la doctora.</p>
-  </div>
-</section>
-
-<section class="otros" id="otros">
-  <div class="contenedor">
-    <span class="sobretitulo">Más proyectos</span>
-    <h2>Donde practico <span class="serif">y aprendo.</span></h2>
-    <div class="tarjetas">
-      <article class="tarjeta">
-        <div class="estado">Minijuego</div>
-        <h3>Gato Misionero</h3>
-        <p>Juego en HTML, CSS y JavaScript sin librerías. Atrapá mates y pescados y esquivá las piedras. Canvas 2D, detección de colisiones y control táctil.</p>
-        <div class="enlaces">
-          <button type="button" class="enlace" id="jugar">Jugar acá</button>
-          <a class="enlace" href="https://github.com/W1sar/gato-misionero" target="_blank" rel="noopener">Código</a>
+      <article class="caso" id="caso-1" aria-labelledby="c1">
+        <div class="caso-info">
+          <p class="mono caso-n"><b>CASO 01</b> · Sistema de escritorio</p>
+          <h3 id="c1" class="display">Caja y stock</h3>
+          <p class="caso-tx">Para Carnicería Angel, una carnicería con almacén. Funciona completa sin internet en una sola computadora y se entrega como una carpeta que se abre con doble clic.</p>
+          <dl class="mono datos">
+            <div><dt>Rol</dt><dd>Requisitos, diseño, desarrollo, pruebas y entrega</dd></div>
+            <div><dt>Stack</dt><dd>PHP · SQLite · Electron · JavaScript</dd></div>
+          </dl>
+          <ul class="caso-lista">
+            <li>Una venta se guarda entera o no se guarda (a prueba de cortes de luz).</li>
+            <li>Cinco medios de pago, incluida la cuenta corriente del cliente.</li>
+            <li>Dos roles: el cajero nunca recibe costos ni saldos, porque el servidor no los envía.</li>
+            <li>Copia automática de la base cada vez que se abre.</li>
+          </ul>
+          <div class="caso-enl"><button type="button" class="enlace mono" data-visor="img/carniceria/caja.webp" data-alt="Pantalla de caja con una venta armada" data-t="La caja: ticket de venta con el total en cifras grandes y la etiqueta de la balanza. Datos de ejemplo.">[ Ver capturas ]</button></div>
         </div>
+        <div class="caso-vis"><picture><source srcset="img/carniceria/resumen.avif" type="image/avif"><source srcset="img/carniceria/resumen.webp" type="image/webp"><img src="img/carniceria/resumen.jpg" alt="Resumen del día con ventas por medio de pago" width="1280" height="780" loading="lazy"></picture></div>
       </article>
-      <article class="tarjeta">
-        <div class="estado">Curso</div>
-        <h3>Trabajos del curso</h3>
-        <p>Ejercicios de desarrollo web con JavaScript del curso de Desarrollo Web Frontend.</p>
-        <div class="enlaces"><a class="enlace" href="https://github.com/W1sar/entrega-tareas-silicon-misiones" target="_blank" rel="noopener">Código</a></div>
+
+      <article class="caso" id="caso-2" aria-labelledby="c2">
+        <div class="caso-info">
+          <p class="mono caso-n"><b>CASO 02</b> · Web + agenda</p>
+          <h3 id="c2" class="display">Turnos y panel</h3>
+          <p class="caso-tx">Para la Dra. Liliana A. Riquelme, odontóloga en Wanda y Puerto Libertad. Los pacientes eligen lugar, día y horario desde el celular y la doctora agenda desde un panel propio. Hoy funciona con datos de prueba.</p>
+          <dl class="mono datos">
+            <div><dt>Rol</dt><dd>Requisitos, diseño, base de datos, desarrollo y publicación</dd></div>
+            <div><dt>Stack</dt><dd>HTML · CSS · JavaScript · PostgreSQL · Supabase · Netlify · GitHub Actions</dd></div>
+          </dl>
+          <ul class="caso-lista">
+            <li>40 pruebas de la agenda sobre PostgreSQL con los roles reales.</li>
+            <li>La base rechaza horarios ocupados o fuera de atención, aunque se saltee la página.</li>
+            <li>Los datos de pacientes los ve solo la doctora, con ingreso; lo exige la base.</li>
+            <li>Copia de seguridad que se descarga con un botón y se probó restaurar.</li>
+          </ul>
+          <div class="caso-enl"><button type="button" class="enlace mono" data-visor="img/consultorio/turnos.webp" data-alt="Formulario para pedir turno, con el día y el horario elegidos" data-t="Pedir turno: solo aparecen los días y horarios de atención del lugar elegido. Proyecto publicado con la autorización de la doctora.">[ Ver capturas ]</button></div>
+        </div>
+        <div class="caso-vis"><picture><source srcset="img/consultorio/panel.avif" type="image/avif"><source srcset="img/consultorio/panel.webp" type="image/webp"><img src="img/consultorio/panel.jpg" alt="Panel de la doctora con dos solicitudes de ejemplo" width="1280" height="780" loading="lazy"></picture></div>
       </article>
-      <article class="tarjeta proximo">
-        <div class="estado">En camino</div>
-        <h3>Próximo proyecto</h3>
-        <p>Un proyecto en Java o C, para profundizar en programación de sistemas.</p>
+
+      <article class="caso" id="caso-3" aria-labelledby="c3">
+        <div class="caso-info">
+          <p class="mono caso-n"><b>CASO 03</b> · Marca y web</p>
+          <h3 id="c3" class="display">Hiro Digital</h3>
+          <p class="caso-tx">Mi agencia de desarrollo web y sistemas a medida. El sitio está publicado y se mantiene a mano: una sola página en HTML, CSS y JavaScript puro, sin frameworks.</p>
+          <dl class="mono datos">
+            <div><dt>Rol</dt><dd>Marca, diseño, desarrollo y publicación</dd></div>
+            <div><dt>Stack</dt><dd>HTML · CSS · JavaScript · GitHub Pages</dd></div>
+          </dl>
+          <ul class="caso-lista">
+            <li>Publicación automática con cada cambio.</li>
+            <li>Incluye su política de privacidad.</li>
+          </ul>
+          <div class="caso-enl"><a class="enlace mono" href="https://w1sar.github.io/hiro-digital/" target="_blank" rel="noopener">[ Ver sitio ↗ ]</a></div>
+        </div>
+        <div class="caso-vis tipo"><span class="display" aria-hidden="true">HD</span></div>
       </article>
+
+      <article class="caso" id="caso-4" aria-labelledby="c4">
+        <div class="caso-info">
+          <p class="mono caso-n"><b>CASO 04</b> · Minijuego</p>
+          <h3 id="c4" class="display">Gato Misionero</h3>
+          <p class="caso-tx">Atrapá mates y pescados y esquivá las piedras. Se juega con el dedo, el mouse o las flechas, y el récord se guarda en el navegador.</p>
+          <dl class="mono datos">
+            <div><dt>Rol</dt><dd>Diseño y desarrollo</dd></div>
+            <div><dt>Stack</dt><dd>HTML · CSS · JavaScript · Canvas 2D (sin librerías)</dd></div>
+          </dl>
+          <ul class="caso-lista">
+            <li>Game loop con <code>requestAnimationFrame</code> y detección de colisiones.</li>
+            <li>Velocidad creciente y tres vidas.</li>
+          </ul>
+          <div class="caso-enl">
+            <button type="button" class="enlace mono" id="jugar">[ Jugar acá ]</button>
+            <a class="enlace mono" href="https://github.com/W1sar/gato-misionero" target="_blank" rel="noopener">[ Código ↗ ]</a>
+          </div>
+        </div>
+        <div class="caso-vis tipo"><span class="display" aria-hidden="true">🧉</span></div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section id="sobre-mi">
-  <div class="contenedor">
-    <span class="sobretitulo">Sobre mí</span>
-    <h2>De Wanda a Posadas, <span class="serif">aprendiendo en serio.</span></h2>
-    <div class="sobre">
-      <div>
-        <p>Soy técnico informático y curso Ingeniería en Informática en la Universidad Gastón Dachary, en Posadas. Me gusta resolver problemas reales con software: entender cómo trabaja una persona, escribir lo que necesita y construirlo de forma que se pueda mantener.</p>
-        <p>Los videojuegos fueron mi puerta de entrada a la tecnología. Hoy practico desarrollo web, programación de sistemas e inteligencia artificial.</p>
-        <p class="fuera"><b>Fuera del código:</b> folklore argentino, videojuegos, gatos y la tierra colorada de Misiones.</p>
-      </div>
-      <ul class="formacion">
-        <li><div><b>Ingeniería en Informática</b><small>Universidad Gastón Dachary, Posadas</small></div><em>2.º año</em></li>
-        <li><div><b>Arquitectos e Ingeniería en IA</b><small>Formación complementaria</small></div><em>Cursando</em></li>
-        <li><div><b>Desarrollo Web Frontend</b><small>Silicon Misiones · jul a sep 2026 · Res. Min. N.º 684/2026</small></div><em><a href="certificados/desarrollo-web-frontend.pdf" target="_blank" rel="noopener">Ver certificado</a></em></li>
-        <li><div><b>Técnico Informático</b><small>Base técnica de mi carrera</small></div></li>
-        <li><div><b>Inglés</b><small>Instituto Sunshine, Wanda, Misiones</small></div></li>
-      </ul>
+<!-- ESCENA 04 · SOBRE MÍ -->
+<section class="escena sobre" id="sobre-mi" data-escena="4" data-nombre="SOBRE MÍ" aria-labelledby="s-titulo">
+  <div class="contenedor sobre-grid">
+    <div>
+      <p class="mono etiqueta">04 — Sobre mí</p>
+      <h2 id="s-titulo" class="titulo-sec">De Wanda a Posadas, aprendiendo en serio.</h2>
+      <p>Soy técnico informático y curso Ingeniería en Informática en la Universidad Gastón Dachary, en Posadas. Me gusta resolver problemas reales con software: entender cómo trabaja una persona, escribir lo que necesita y construirlo de forma que se pueda mantener.</p>
+      <p>Los videojuegos fueron mi puerta de entrada a la tecnología. Hoy practico desarrollo web, programación de sistemas e inteligencia artificial.</p>
+      <p class="fuera mono"><b>Fuera del código:</b> folklore argentino, videojuegos, gatos y la tierra colorada de Misiones.</p>
+      <h3 class="mono mini">Otros trabajos</h3>
+      <p class="fuera"><a class="enlace-txt" href="https://github.com/W1sar/entrega-tareas-silicon-misiones" target="_blank" rel="noopener">Trabajos del curso de Desarrollo Web Frontend ↗</a> · próximo: un proyecto en Java o C para profundizar en programación de sistemas.</p>
     </div>
+    <ul class="formacion">
+      <li><div><b>Ingeniería en Informática</b><small>Universidad Gastón Dachary, Posadas</small></div><em class="mono">2.º año</em></li>
+      <li><div><b>Arquitectos e Ingeniería en IA</b><small>Formación complementaria</small></div><em class="mono">Cursando</em></li>
+      <li><div><b>Desarrollo Web Frontend</b><small>Silicon Misiones · jul a sep 2026 · Res. Min. N.º 684/2026</small></div><em class="mono"><a href="certificados/desarrollo-web-frontend.pdf" target="_blank" rel="noopener">Ver certificado ↗</a></em></li>
+      <li><div><b>Técnico Informático</b><small>Base técnica de mi carrera</small></div></li>
+      <li><div><b>Inglés</b><small>Instituto Sunshine, Wanda, Misiones</small></div></li>
+    </ul>
   </div>
 </section>
 
-<section class="contacto" id="contacto">
-  <div class="contenedor">
-    <div class="panel">
-      <div class="contenido">
-        <span class="sobretitulo" style="color:#9fe0c0">Contacto</span>
-        <h2>¿Tenés un negocio <span class="serif">que necesita su sistema?</span></h2>
-        <p>Contame cómo trabajás hoy y vemos si puedo ayudarte. Respondo desde Posadas, Misiones.</p>
-        <div class="acciones">
-          <a class="boton negro" href="mailto:angelriquelme573@gmail.com">angelriquelme573@gmail.com</a>
-          <a class="boton claro" href="https://github.com/W1sar" target="_blank" rel="noopener">GitHub · W1sar</a>
+<!-- ESCENA 05 · ARMÁ TU PROYECTO (split 50/50) -->
+<section class="escena armar" id="armar" data-escena="5" data-nombre="ARMÁ TU PROYECTO" aria-labelledby="a-titulo">
+  <div class="armar-grid">
+    <div class="armar-prev" id="armar-resultado" aria-live="polite">
+      <div class="prev-cab mono"><span id="prev-tipo">WEB DE ALTO IMPACTO</span><span id="prev-n">00 ENTREGABLES</span></div>
+      <div class="prev-lienzo" id="prev-lienzo" role="img" aria-label="Vista previa esquemática de la solución elegida"></div>
+      <div class="prev-res">
+        <h3 class="mono mini">Qué te entrego</h3>
+        <ul id="prev-lista" class="prev-lista"></ul>
+        <p id="prev-nota" class="prev-nota mono"></p>
+        <div class="prev-acc">
+          <a class="cta" id="btn-wa" href="https://wa.me/5493764151908" target="_blank" rel="noopener noreferrer"><span class="cta-t mono">[ ESCRIBIME POR WHATSAPP ]</span></a>
+          <a class="cta-sec mono" id="btn-mail" href="mailto:angelriquelme573@gmail.com">o por mail →</a>
         </div>
       </div>
-      <svg viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 80 C240 20 420 70 640 90 S1080 120 1260 60 1400 40 1440 50 V160 H0Z" fill="#b5472a" opacity=".5"/>
-        <path d="M0 120 C300 80 540 130 800 120 S1200 90 1440 110 V160 H0Z" fill="#0a3326" opacity=".9"/>
-      </svg>
+    </div>
+    <form class="armar-ctrl" id="armar-form" onsubmit="return false" aria-labelledby="a-titulo">
+      <p class="mono etiqueta">05 — Armá tu proyecto</p>
+      <h2 id="a-titulo" class="titulo-sec">¿Qué necesitás?</h2>
+      <fieldset>
+        <legend class="mono mini">1 · Tipo de solución</legend>
+        <div class="opciones" id="op-tipo" role="radiogroup"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="mono mini" id="leg-foco">2 · Enfoque</legend>
+        <div class="opciones" id="op-foco" role="radiogroup"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="mono mini">3 · Extras</legend>
+        <div class="opciones" id="op-extras"></div>
+      </fieldset>
+      <p class="mono ayuda">Sin precios en esta pantalla: el mensaje que se arma me llega y lo charlamos.</p>
+      <a class="armar-ir mono" href="#armar-resultado" data-ancla>[ Ver vista previa y WhatsApp ↓ ]</a>
+    </form>
+  </div>
+</section>
+
+<!-- ESCENA 06 · CONTACTO (cierre + footer) -->
+<section class="escena cierre" id="contacto" data-escena="6" data-nombre="CONTACTO" aria-labelledby="k-titulo">
+  <div class="luz foco" aria-hidden="true"></div>
+  <div class="contenedor cierre-in">
+    <p class="mono etiqueta">06 — Contacto</p>
+    <h2 id="k-titulo" class="display cierre-t">TU NEGOCIO MERECE <span class="acento">SU PROPIO SISTEMA.</span></h2>
+    <p class="mono sub">Contame cómo trabajás hoy y vemos si puedo ayudarte. Respondo desde Posadas, Misiones.</p>
+    <div class="hero-acc">
+      <a class="cta" href="https://wa.me/5493764151908?text=Hola%20%C3%81ngel%2C%20vi%20tu%20portafolio%20y%20quiero%20consultarte%20por%20un%20proyecto." target="_blank" rel="noopener noreferrer"><span class="cta-t mono">[ HABLAR POR WHATSAPP ]</span></a>
+      <a class="cta-sec mono" href="mailto:angelriquelme573@gmail.com">o por mail →</a>
     </div>
   </div>
+  <footer class="pie mono">
+    <span>© Ángel Antonio Riquelme · Posadas, Misiones, Argentina</span>
+    <nav aria-label="Enlaces del pie">
+      <a href="https://github.com/W1sar" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://w1sar.github.io/hiro-digital/" target="_blank" rel="noopener">Hiro Digital ↗</a>
+      <a href="certificados/desarrollo-web-frontend.pdf" target="_blank" rel="noopener">Certificado ↗</a>
+    </nav>
+    <span>Hecho a mano con HTML, CSS y JavaScript.</span>
+  </footer>
 </section>
 
 </main>
 
-<footer>
-  <div class="contenedor"><span>© Ángel Antonio Riquelme · Posadas, Misiones, Argentina</span><span>Hecho a mano con HTML, CSS y JavaScript.</span></div>
-</footer>
-
 <dialog id="visor" aria-label="Captura ampliada">
-  <button type="button" class="cierre" data-cerrar>Cerrar</button>
-  <img alt=""><p></p>
+  <button type="button" class="cierre mono" data-cerrar>[ CERRAR ]</button>
+  <img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p></p>
 </dialog>
 <dialog id="juego" aria-label="Gato Misionero">
-  <button type="button" class="cierre" data-cerrar>Cerrar</button>
+  <button type="button" class="cierre mono" data-cerrar>[ CERRAR ]</button>
   <iframe title="Gato Misionero"></iframe>
 </dialog>
 
-<script>
-(function(){
-  var $=function(i){return document.getElementById(i)};
-  /* visor ampliado */
-  var visor=$("visor"),vi=visor.querySelector("img"),vp=visor.querySelector("p");
-  /* pestañas de capturas: una galería por cada proyecto destacado */
-  document.querySelectorAll(".destacado").forEach(function(sec){
-    var img=sec.querySelector(".pantalla img"),ley=sec.querySelector(".leyenda"),pant=sec.querySelector(".pantalla");
-    var pestanas=sec.querySelectorAll(".pestanas button");
-    pestanas.forEach(function(b){b.addEventListener("click",function(){
-      pestanas.forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false")});
-      img.src=b.dataset.img;img.alt=b.dataset.alt;ley.textContent=b.dataset.t})});
-    pant.addEventListener("click",function(){vi.src=img.src;vi.alt=img.alt;vp.textContent=ley.textContent;visor.showModal()});
-  });
-  /* juego */
-  var juego=$("juego");
-  $("jugar").addEventListener("click",function(){var f=juego.querySelector("iframe");if(!f.src)f.src="https://w1sar.github.io/gato-misionero/";juego.showModal()});
-  /* cerrar diálogos: botón o clic afuera */
-  [visor,juego].forEach(function(d){
-    d.addEventListener("click",function(e){if(e.target===d||e.target.hasAttribute("data-cerrar"))d.close()})});
-})();
-</script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="js/preloader.js" defer></script>
+<script src="js/motor.js" defer></script>
+<script src="js/particulas.js" defer></script>
+<script src="js/profundidad.js" defer></script>
+<script src="js/casos.js" defer></script>
+<script src="js/configurador.js" defer></script>
 </body>
 </html>
