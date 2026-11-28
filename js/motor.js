@@ -71,9 +71,7 @@
         .to(".scroll-guia",{opacity:1,duration:.8},1.1);
     }
     if(C.listo)entrar();else document.addEventListener("cine:listo",entrar);
-    gsap.to("#inicio .luz",{opacity:.6,duration:5,ease:"sine.inOut",yoyo:true,repeat:-1});
     gsap.to("#inicio .hero-in",{y:-70,ease:"none",scrollTrigger:{trigger:"#inicio",start:"top top",end:"bottom top",scrub:true}});
-    gsap.to("#inicio .luz",{y:90,ease:"none",scrollTrigger:{trigger:"#inicio",start:"top top",end:"bottom top",scrub:true}});
   }
   document.addEventListener("DOMContentLoaded",hero);
 
@@ -104,5 +102,5 @@
     d.addEventListener("close",function(){C.seguir();if(d===juego){var f=$("iframe",d);f.removeAttribute("src")}});
   });
   $$("[data-visor]").forEach(function(b){b.addEventListener("click",function(){vi.src=b.dataset.visor;vi.alt=b.dataset.alt||"";vp.textContent=b.dataset.t||"";abrir(visor)})});
-  $("#jugar").addEventListener("click",function(){var f=$("iframe",juego);f.src="https://w1sar.github.io/gato-misionero/";abrir(juego)});
+  $("#jugar").addEventListener("click",function(){var f=$("iframe",juego);f.src="https://memory-game-next-blush.vercel.app/";abrir(juego)});
 })();
